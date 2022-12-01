@@ -1,7 +1,9 @@
 package com.infosys.bank.bankrestfulwebservices;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +19,7 @@ import jakarta.validation.Valid;
 @RestController
 public class BankRestfulWebservicesController {
 
+	@Autowired
 	private BankRestfulWebservicesService bankRestfulWebservicesService;
 
 	@PostMapping("/createbankaccount")
@@ -44,7 +47,7 @@ public class BankRestfulWebservicesController {
 	}
 
 	@PutMapping("/bankaccountusers/{id}")
-	  public ResponseEntity<BankAccountEntity> updateBankAccountUser(@PathVariable int id, @RequestBody BankAccountEntity bankAccountEntity) {
+	  public ResponseEntity<BankAccountEntity> updateBankAccountUser(@PathVariable int id, @RequestBody Map<String, ?> bankAccountEntity) {
 	    
 		 return bankRestfulWebservicesService.updateBankAccountUser(id, bankAccountEntity);
 	}
