@@ -1,15 +1,16 @@
 package com.infosys.bank.bankrestfulwebservices;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-import jakarta.websocket.OnMessage;
 
 @Entity(name = "bank_account")
 public class BankAccountEntity {
@@ -91,7 +92,8 @@ public class BankAccountEntity {
 	public void setAccountBalance(int accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "BankAccountEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", birthDate="
