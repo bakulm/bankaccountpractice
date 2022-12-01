@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+import jakarta.websocket.OnMessage;
 
 @Entity(name = "bank_account")
 public class BankAccountEntity {
@@ -28,7 +30,7 @@ public class BankAccountEntity {
 	// @JsonProperty("user_name")
 	private String lastName;
 
-//	@Past(message = "Birth Date should be in the past")
+	@Past(message = "Birth Date should be in the past")
 	// @JsonProperty("birth_date")
 	private LocalDate birthDate;
 
